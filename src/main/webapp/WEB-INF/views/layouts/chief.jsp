@@ -325,7 +325,7 @@
 	<!-- ./wrapper -->
 	
 <!-- === Select 2 === -->
-	<script src="<c:url value="/assets/user/vendor/select2/js/select2.min.js" />"></script>
+	<script src="<c:url value='/assets/user/vendor/select2/js/select2.min.js' />"></script>
 	
 	<!-- jQuery UI 1.11.4 -->
 	<script
@@ -448,10 +448,9 @@
 			});
 			
 			let now = new Date();
+			let current_year = now.getFullYear();
 			let onejan = new Date(now.getFullYear(), 0, 1);
 			let tuan_nay = Math.ceil((((now.getTime() - onejan.getTime()) / 86400000) + onejan.getDay() - 1) / 7);
-			
-			
 			
 			/* ===== Đầu: Thiết lập select 2 cho phần Header ===== */
 			$('#select_week').select2();
@@ -459,7 +458,7 @@
 			var week_option = "";
 			var year_option = "";
 			
-			for (let i = 2020; i <= 2022; i++) {
+			for (let i = 2020; i <= current_year; i++) {
 				if (i == year_from_url) {
 					year_option += '<option value="' + i + '" selected>' + i + '</option>';
 				} else {
